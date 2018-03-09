@@ -50,7 +50,7 @@
 </head>
 
 <body>
-  <a onClick="stopStartToggle()"><canvas id="canvas" height="600px" width="1200px"></a>
+  <a id="link" onClick="start()"><canvas id="canvas" height="600px" width="1200px"></a>
 
 </center>
   <script>
@@ -77,7 +77,7 @@
 
   paintCanvas();
 
-  var intervar = setInterval(paintCanvas,20);
+  var intervar;
 
   function paintCanvas(){
     var x = 0;
@@ -118,6 +118,12 @@
     ctx.font = "50px Shrikhand";
     ctx.fillText("instant ART",x,y+51);
 
+  }
+
+  
+  function start(){ //sets the interval
+    intervar = setInterval(paintCanvas,20);
+    document.getElementById("link").onclick = stopStartToggle;
   }
 
   function stopStartToggle(){
